@@ -1,9 +1,16 @@
 import "./Formulario.css"
 import CampoTexto from "../CampoTexto/Index.js"
 import ListaOpciones from "../ListaOpciones/Index.js"
+import Boton from "../Boton/Index.js"
+
 const Formulario = () => {
-    return <section className="formulario">
-        <form>
+   const manejarEnvio = (e) =>{
+        e.preventDefault();
+        console.log("manejar el envio",e)
+   }
+
+   return <section className="formulario">
+        <form onSubmit={manejarEnvio}>
             <h2>
                 Rellena el formulario para crear el colaborador
 
@@ -12,6 +19,9 @@ const Formulario = () => {
             <CampoTexto titulo = "Puesto" placeholder = "ingresar puesto" />
             <CampoTexto titulo = "Foto"   placeholder = "ingresar enlace de foto"/>
             <ListaOpciones />
+            <Boton>
+                Crear
+            </Boton>
         </form>
     </section>
 }
