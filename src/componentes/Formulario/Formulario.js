@@ -15,9 +15,9 @@ const Formulario = () => {
                 Rellena el formulario para crear el colaborador
 
             </h2>
-            <CampoTexto titulo = "Nombre" placeholder = "ingresar nombre" />
-            <CampoTexto titulo = "Puesto" placeholder = "ingresar puesto" />
-            <CampoTexto titulo = "Foto"   placeholder = "ingresar enlace de foto"/>
+            <CampoTexto titulo = "Nombre" placeholder = "ingresar nombre" required />
+            <CampoTexto titulo = "Puesto" placeholder = "ingresar puesto" required />
+            <CampoTexto titulo = "Foto"   placeholder = "ingresar enlace de foto" required = {true} />
             <ListaOpciones />
             <Boton>
                 Crear
