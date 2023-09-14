@@ -38,19 +38,7 @@ function App() {
     nombre: "Jose Gonzalez",
     puesto: "Dev FullStack"
   }])
-
-  
-
-  //Ternario --> condicion ? seMuestra : noSeMuestra
-  //Condicion && seMuestra
-  
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario)
-  }
-
-  //Lista de equipos
-
-  const equipos = [
+  const [equipos, actualizarEquipos] = useState([
     {
       titulo:"Programacion",
       colorPrimario: "#57C278",
@@ -93,7 +81,31 @@ function App() {
       colorSecundario: "#FFEEDF"
     },
 
-]
+])
+
+  
+
+  //Ternario --> condicion ? seMuestra : noSeMuestra
+  //Condicion && seMuestra
+  
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarFormulario)
+  }
+
+  //Actualizar color de equipo
+
+  const actualizarColor = (color, titulo) => {
+    console.log("actualizar color", color, titulo)
+    const equiposActualizados = equipos.map((equipo)=>{
+        if (equipo.titulo === titulo) {
+          equipo.colorPrimario = color
+        }
+        return equipo;
+    })
+
+    actualizarEquipos(equiposActualizados)
+  }
+
 
   //Registrar colaborador
   const registrarColaborador = (colaborador) =>{
@@ -118,6 +130,7 @@ function App() {
         equipos.map((equipo)=> <Equipo datos={equipo} key={equipo.titulo}
         colaboradores = {colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
         eliminarColaborador = {eliminarColaborador}
+        actualizarColor = {actualizarColor}
         /> )
 //cada que se usa map debe llevar una key ( para identificar de elemento)    
       }
