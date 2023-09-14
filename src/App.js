@@ -8,7 +8,38 @@ import Footer from './componentes/Footer/index.jsx';
 
 function App() {
   const [mostrarFormulario,actualizarMostrar] = useState(true)
-  const [colaboradores, actualizarColaboradores] = useState([])
+  const [colaboradores, actualizarColaboradores] = useState([{
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programacion",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programacion",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovacion y Gestion",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
+  }])
+
+  
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
   //Condicion && seMuestra
@@ -69,7 +100,10 @@ function App() {
     console.log("Nuevo colaborador", colaborador)
     //Spread operator
     actualizarColaboradores([...colaboradores, colaborador])
-
+  }
+   //Eliminar colaborador
+  const eliminarColaborador = () =>{
+    console.log("eliminar colaborador")
   }
   return (
     <div>
@@ -83,6 +117,7 @@ function App() {
         //metodo map es para moverse en arreglos en jsx
         equipos.map((equipo)=> <Equipo datos={equipo} key={equipo.titulo}
         colaboradores = {colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+        eliminarColaborador = {eliminarColaborador}
         /> )
 //cada que se usa map debe llevar una key ( para identificar de elemento)    
       }
