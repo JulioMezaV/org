@@ -6,7 +6,7 @@ const Equipo = (props) => {
     //backgroundColor es un objeto 
     //Destructuracion
     const {colorPrimario, colorSecundario, titulo,id} = props.datos
-    const {colaboradores, eliminarColaborador, actualizarColor} = props
+    const {colaboradores, eliminarColaborador, actualizarColor, like} = props
     const estiloTitulo = {borderColor:colorPrimario}
 
     
@@ -27,7 +27,12 @@ const Equipo = (props) => {
                 <div className="colaboradores">
 
                     {
-                        colaboradores.map((colaborador, index) => <Colaborador datos={colaborador} key={index} colorPrimario = {colorPrimario} eliminarColaborador = {eliminarColaborador} />)
+                        colaboradores.map((colaborador, index) => <Colaborador datos={colaborador} 
+                        key={index} 
+                        colorPrimario = {colorPrimario} 
+                        eliminarColaborador = {eliminarColaborador} 
+                        like = {like}
+                        />)
                     }
 
                 </div>

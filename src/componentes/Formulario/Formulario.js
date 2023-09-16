@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./Formulario.css"
-import CampoTexto from "../CampoTexto/Index.js"
+import Campo from "../Campo/Index.js"
 import ListaOpciones from "../ListaOpciones/Index.js"
 import Boton from "../Boton/Index.js"
 
@@ -39,9 +39,9 @@ const Formulario = (props) => {
                 Rellena el formulario para crear el colaborador
 
             </h2>
-            <CampoTexto titulo = "Nombre" placeholder = "ingresar nombre" required valor={nombre} setValor={actualizarNombre}/>
-            <CampoTexto titulo = "Puesto" placeholder = "ingresar puesto" required valor={puesto} setValor={actualizarPuesto}/>
-            <CampoTexto titulo = "Foto"   placeholder = "ingresar enlace de foto" required = {true} valor={foto} setValor={actualizarFoto}/>
+            <Campo titulo = "Nombre" placeholder = "ingresar nombre" required valor={nombre} setValor={actualizarNombre}/>
+            <Campo titulo = "Puesto" placeholder = "ingresar puesto" required valor={puesto} setValor={actualizarPuesto}/>
+            <Campo titulo = "Foto"   placeholder = "ingresar enlace de foto" required = {true} valor={foto} setValor={actualizarFoto}/>
             <ListaOpciones valor = {equipo} setEquipo = {actualizarEquipo}
             equipos={props.equipos}/>
             <Boton>
@@ -53,12 +53,14 @@ const Formulario = (props) => {
                 Rellena el formulario para crear el equipo
 
             </h2>
-            <CampoTexto titulo = "Titulo" placeholder = "ingresar titulo" 
+            <Campo titulo = "Titulo" placeholder = "ingresar titulo" 
             required valor={titulo} 
             setValor={actualizarTitulo}/>
-            <CampoTexto titulo = "Color" placeholder = "ingresar el color en hexadecimal" 
+            <Campo titulo = "Color" placeholder = "ingresar el color en hexadecimal" 
             required valor={color} 
-            setValor={actualizarColor}/>
+            setValor={actualizarColor}
+            type="color"
+            />
             <Boton>
                 Registrar equipo
             </Boton>
